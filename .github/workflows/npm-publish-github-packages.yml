@@ -24,7 +24,7 @@ jobs:
         run: npm audit
 
       - name: Run Tests
-        run: npm test
+        run: npm test -- --verbose
 
   publish-gpr:
     needs: build
