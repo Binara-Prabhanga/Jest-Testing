@@ -49,4 +49,5 @@ jobs:
 
       - name: Notify on Failure
         if: failure()
-        run: echo "The workflow failed."
+        run: echo 'The workflow failed.'
+
