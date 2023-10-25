@@ -11,6 +11,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Step 1
+        run: echo "Debugging Step 1"
+      - name: Debug Step 2
+        run: echo "Debugging Step 2"
+      - name: Debug Step 3
+        run: echo "Debugging Step 3"
       - name: Checkout Code
         uses: actions/checkout@v2
 
