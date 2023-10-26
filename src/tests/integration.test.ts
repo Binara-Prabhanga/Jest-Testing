@@ -38,7 +38,7 @@ describe('Record API Integration Tests', () => {
             id: 1232,
             name: 'Updated Name',
             contact: 12345,
-            address: 'Updated Address',
+            address: 'Updated AddressS',
         };
 
         const updateResponse = await request(app)
