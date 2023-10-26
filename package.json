@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npx nodemon --require ts-node/register ./src/index.ts\" \"node ./src/index.js\" \"npm test\"",
+    "start": "concurrently \"npx nodemon --require ts-node/register ./src/index.ts\" \"node ./src/index.js\" \"npm test\"   \"npx jest --coverage\"",
     "test": "jest"
   },
   "author": "",
