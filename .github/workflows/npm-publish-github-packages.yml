@@ -5,34 +5,29 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ master ]
   pull_request:
-    branches:
-      - main
+    branches: [ master ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [12.x, 14.x]
+
     steps:
-    - name: Cache node modules
-      uses: actions/cache@v2
-      with:
-        path: /home/runner/work/Jest-Testing/node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    - uses: actions/setup-node@v2
-      with:
-        node-version: 16
+      - uses: actions/checkout@v2
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install Dependencies
-      run: npm install
-      working-directory: /home/runner/work/Jest-Testing
-
-    - name: Grant execute permission to jest
-      run: chmod +x node_modules/.bin/jest
-      working-directory: /home/runner/work/Jest-Testing
-
-    - name: Run Tests
-      run: npm test
-      working-directory: /home/runner/work/Jest-Testing
+      - name: Install Dependencies and Run Scripts
+        run: |
+          npm ci
+          npm run prettier
+          npm run linter
+          npm test
