@@ -30,4 +30,4 @@ jobs:
           npm ci
           npm run prettier
           npm run linter
-          npm tesr=t
+          npm test
