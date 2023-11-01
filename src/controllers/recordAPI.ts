@@ -6,7 +6,7 @@ let records: Record[] = loadData();
 
 export const createRecord = (req: Request, res: Response): void => {
     const { id, name, contact, address }: Record = req.body;
-    const newRecord: Record = { id, name, contact, address };
+    const newRecord: Record = { id, name, contact, address           };
     records.push(newRecord);
     saveData(records);
     res.status(201).json(newRecord);
