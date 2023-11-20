@@ -2,22 +2,17 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "CommonJS",
-        "outDir": "./src",
+        "outDir": "./dist",
         "rootDir": "./src",
-        "types": [
-            "jest"
-        ],
-        "forceConsistentCasingInFileNames": true,
-        "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "allowImportingTsExtensions": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
         "noEmit": true
     },
     "include": [
-        "src/**/*.ts",
-        "tests/**/*.ts",
-        "src/index.ts"
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules"
