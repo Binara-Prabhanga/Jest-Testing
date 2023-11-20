@@ -1,18 +1,18 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
-import router from './routes/recordRoutes'; // Adjust the import path according to your project structure
+import router from './routes/recordRoutes';
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
-app.use(bodyParser.json()); // Body parser middleware for JSON data
+app.use(bodyParser.json());
 
 // Routes
-app.use('/api/records', router); // Mount the router at /api/records
+app.use('/api/records', router);
 
 // Error handling middleware
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     console.error(err.stack);
     res.status(500).json({ error: 'Something went wrong!' });
 });
